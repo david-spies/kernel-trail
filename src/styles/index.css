@@ -1,0 +1,189 @@
+/* ============================================================
+   THE KERNEL TRAIL — Global Styles
+   Tech-noir terminal aesthetic
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #020508;
+  color: #859900;
+  font-family: 'Share Tech Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent text selection flash on rapid clicks */
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Allow text selection in question/hint areas */
+.selectable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* ── Scrollbars ── */
+::-webkit-scrollbar         { width: 4px; height: 4px; }
+::-webkit-scrollbar-track   { background: #073642; }
+::-webkit-scrollbar-thumb   { background: #586e75; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #859900; }
+
+/* ── Input placeholder ── */
+input::placeholder,
+textarea::placeholder {
+  color: #586e75;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Disable browser autocomplete styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #859900;
+  -webkit-box-shadow: 0 0 0px 1000px #050a0e inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ── Utility: CRT Scanlines overlay ── */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* ── Utility: Terminal glow text ── */
+.glow-green {
+  text-shadow: 0 0 8px #859900, 0 0 20px #859900;
+}
+
+.glow-white {
+  text-shadow: 0 0 8px #fdf6e3, 0 0 20px #fdf6e3;
+}
+
+.glow-amber {
+  text-shadow: 0 0 8px #b58900, 0 0 20px #b58900;
+}
+
+.glow-red {
+  text-shadow: 0 0 8px #dc322f, 0 0 20px #dc322f;
+}
+
+/* ── Utility: Terminal border ── */
+.terminal-border {
+  border: 1px solid #073642;
+  background: #050a0e;
+}
+
+.terminal-border-active {
+  border: 1px solid #859900;
+  background: #050a0e;
+  box-shadow: 0 0 20px rgba(133, 153, 0, 0.2);
+}
+
+/* ── Component: Cursor blink ── */
+.cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: #859900;
+}
+
+/* ── Animations (referenced in Tailwind config too) ── */
+@keyframes glow {
+  from { text-shadow: 0 0 5px #859900; }
+  to   { text-shadow: 0 0 20px #859900, 0 0 40px #859900; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shake {
+  0%, 100%              { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px) rotate(-0.5deg); }
+  20%, 40%, 60%, 80%    { transform: translateX(6px) rotate(0.5deg); }
+}
+
+@keyframes overclock {
+  0%, 100% { box-shadow: inset 0 0 10px rgba(253,246,227,0.1); }
+  50%       { box-shadow: inset 0 0 30px rgba(253,246,227,0.2); }
+}
+
+@keyframes matrix {
+  from { opacity: 0.8; }
+  to   { opacity: 0.2; }
+}
+
+@keyframes warp-pulse {
+  0%, 100% { border-color: #b58900; box-shadow: 0 0 10px rgba(181,137,0,0.4); }
+  50%       { border-color: #fdf6e3; box-shadow: 0 0 40px rgba(181,137,0,0.8); }
+}
+
+/* ── Component: Achievement toast slide-in ── */
+.achievement-toast {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ── Component: Warp modal ── */
+.warp-modal {
+  animation: fadeIn 0.3s ease;
+}
+
+.warp-border {
+  animation: warp-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Overclock mode body glow ── */
+.overclock-active {
+  animation: overclock 1s ease-in-out infinite;
+}
+
+/* ── Responsive terminal layout ── */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .terminal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hud-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hud-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

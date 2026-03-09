@@ -1,3 +1,5 @@
+<img width="1280" height="634" alt="TheKernelTrail" src="https://github.com/user-attachments/assets/667e25eb-dd45-4510-bc31-6e3da3a38561" />
+
 # 🖥️ The Kernel Trail
 
 > *"They died as they lived — with insufficient privileges."*

@@ -1,0 +1,143 @@
+# =============================================================
+# THE KERNEL TRAIL — Requirements
+# =============================================================
+# This is a Node.js/npm project. There is no Python dependency.
+# This file documents runtime and tool requirements in a
+# format familiar to developers across ecosystems.
+# =============================================================
+
+
+# -------------------------------------------------------------
+# RUNTIME — Required to run the project
+# -------------------------------------------------------------
+
+node >= 18.0.0
+# Vite 5 requires Node 18+. Node 20 LTS is recommended.
+# Check: node -v
+# Install: https://nodejs.org  or  nvm install 20
+
+npm >= 9.0.0
+# Bundled with Node 18+. npm 10 ships with Node 20.
+# Check: npm -v
+# Upgrade: npm install -g npm@latest
+
+
+# -------------------------------------------------------------
+# PRODUCTION DEPENDENCIES  (installed via npm install)
+# Source: package.json → "dependencies"
+# -------------------------------------------------------------
+
+react == 18.3.1
+# Core UI framework
+
+react-dom == 18.3.1
+# React DOM renderer
+
+zustand == 4.5.2
+# Lightweight state management (no Redux, no Context boilerplate)
+
+lucide-react == 0.263.1
+# Icon library (used for UI decorative elements)
+
+
+# -------------------------------------------------------------
+# DEV DEPENDENCIES  (installed via npm install)
+# Source: package.json → "devDependencies"
+# -------------------------------------------------------------
+
+vite == 5.3.1
+# Build tool and dev server (HMR at localhost:5173)
+
+@vitejs/plugin-react == 4.3.1
+# Vite plugin: fast React refresh + JSX transform
+
+tailwindcss == 3.4.4
+# Utility-first CSS framework
+
+postcss == 8.4.38
+# CSS processing pipeline (required by Tailwind)
+
+autoprefixer == 10.4.19
+# Adds vendor prefixes automatically via PostCSS
+
+eslint == 8.57.0
+# JavaScript linter
+
+eslint-plugin-react == 7.34.2
+# React-specific ESLint rules
+
+eslint-plugin-react-hooks == 4.6.2
+# Enforces Rules of Hooks
+
+eslint-plugin-react-refresh == 0.4.7
+# Warns on non-HMR-compatible component exports
+
+@types/react == 18.3.1
+# TypeScript type definitions (used for IDE autocomplete even in .jsx)
+
+@types/react-dom == 18.3.1
+# TypeScript type definitions for React DOM
+
+
+# -------------------------------------------------------------
+# EXTERNAL ASSETS  (loaded via CDN at runtime, no install)
+# -------------------------------------------------------------
+
+# Google Fonts — loaded in index.html
+# VT323           https://fonts.google.com/specimen/VT323
+# Share Tech Mono https://fonts.google.com/specimen/Share+Tech+Mono
+#
+# For offline use: download both fonts, place in public/fonts/,
+# and replace the <link> in index.html with @font-face rules
+# in src/styles/index.css.
+
+
+# -------------------------------------------------------------
+# OPTIONAL TOOLS  (improves developer experience)
+# -------------------------------------------------------------
+
+# nvm (Node Version Manager) — recommended for managing Node versions
+# Install: https://github.com/nvm-sh/nvm
+# Usage:   nvm install 20 && nvm use 20
+
+# pnpm — faster alternative to npm, fully compatible
+# Install: npm install -g pnpm
+# Usage:   pnpm install && pnpm dev
+
+# Volta — alternative Node version manager (pins versions per project)
+# Install: https://volta.sh
+
+# VS Code extensions (optional but recommended):
+#   - ESLint                 (dbaeumer.vscode-eslint)
+#   - Tailwind CSS IntelliSense (bradlc.vscode-tailwindcss)
+#   - Prettier               (esbenp.prettier-vscode)
+
+
+# -------------------------------------------------------------
+# BROWSER COMPATIBILITY
+# -------------------------------------------------------------
+
+# Modern evergreen browsers only:
+#   Chrome  >= 90
+#   Firefox >= 90
+#   Safari  >= 15
+#   Edge    >= 90
+#
+# Internet Explorer: not supported.
+# Mobile browsers: functional but sidebar is hidden below 768px.
+
+
+# -------------------------------------------------------------
+# NO BACKEND REQUIRED
+# -------------------------------------------------------------
+# The Kernel Trail is a fully static client-side application.
+# Production build (npm run build) outputs to dist/ and can be
+# served from any static host:
+#
+#   Netlify   — drag & drop dist/ or connect GitHub repo
+#   Vercel    — zero-config, auto-detects Vite
+#   GitHub Pages — use the gh-pages npm package
+#   Nginx     — serve dist/ as document root
+#   Apache    — serve dist/ as DocumentRoot
+#
+# No database, no authentication, no environment variables needed.

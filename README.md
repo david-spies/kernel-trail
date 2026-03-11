@@ -6,6 +6,12 @@
 
 **The Kernel Trail** is a tech-noir survival game in the spirit of *The Oregon Trail*, built to teach Linux commands (A–Z) and IT history through gameplay. Set in **2099**, the Cloud has collapsed. You are a **Data Scavenger** tasked with migrating humanity's last archive across the **Great Dead Network** to the final surviving server farm in **Neo-Portland**. Your only weapon: a Linux terminal.
 
+![Version](https://img.shields.io/badge/version-2.1-4dff4d?style=flat-square)
+![Node](https://img.shields.io/badge/node-18+-5D81FF?style=flat-square)
+![React](https://img.shields.io/badge/react-18.3.1-ff751a?style=flat-square)
+![Vite](https://img.shields.io/badge/vite-5.3.1-33ccff?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-F0F2F5?style=flat-square)
+
 ---
 
 ## 🎮 Gameplay
